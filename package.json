@@ -9,9 +9,18 @@
   "scripts": {
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces",
-    "lint": "npm run lint --workspaces",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "clean": "npm run clean --workspaces",
-    "dev": "npm run dev --workspace=@verp/frontend"
+    "dev": "npm run dev --workspace=@verp/frontend",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:clean": "docker-compose down -v --remove-orphans",
+    "docker:dev": "docker-compose -f docker-compose.yml up --build",
+    "prepare": "npm run build",
+    "start": "npm run docker:dev"
   },
   "keywords": [
     "erp",
@@ -29,6 +38,9 @@
     "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
     "eslint": "^8.56.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.4.2",
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3"
   }

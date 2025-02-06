@@ -15,10 +15,10 @@ import { Add as AddIcon } from '@mui/icons-material';
 import { Fund, formatCurrency } from '@verp/shared';
 
 // API functions
-const API_URL = 'http://localhost:3000';
+const API_BASE_URL = '/api'; // Updated to use nginx proxy path
 
 const fetchFunds = async (): Promise<Fund[]> => {
-  const response = await fetch(`${API_URL}/funds`);
+  const response = await fetch(`${API_BASE_URL}/funds`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -27,17 +27,17 @@ const fetchFunds = async (): Promise<Fund[]> => {
 
 export default function Funds() {
   // Query funds data
-  const { data: funds, isLoading, error } = useQuery({
+  const {
+    data: funds,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ['funds'],
     queryFn: fetchFunds,
   });
 
   if (isLoading) {
-    return (
-      <Box sx={{ textAlign: 'center', py: 4 }}>
-        Loading funds...
-      </Box>
-    );
+    return <Box sx={{ textAlign: 'center', py: 4 }}>Loading funds...</Box>;
   }
 
   if (error) {
@@ -77,13 +77,11 @@ export default function Funds() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {funds?.map((fund) => (
+            {funds?.map(fund => (
               <TableRow key={fund.id}>
                 <TableCell>{fund.name}</TableCell>
                 <TableCell>{fund.description}</TableCell>
-                <TableCell align="right">
-                  {formatCurrency(fund.totalCapital)}
-                </TableCell>
+                <TableCell align="right">{formatCurrency(fund.totalCapital)}</TableCell>
                 <TableCell align="right">{fund.vintage}</TableCell>
               </TableRow>
             ))}

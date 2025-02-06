@@ -3,7 +3,29 @@ import { Fund } from '@verp/shared';
 
 @Injectable()
 export class FundsService {
-  private funds: Fund[] = [];
+  private funds: Fund[] = [
+    {
+      id: '1',
+      name: 'Tech Ventures I',
+      description: 'Early stage technology investments focused on AI and ML',
+      totalCapital: 50000000,
+      vintage: 2023,
+    },
+    {
+      id: '2',
+      name: 'Growth Fund II',
+      description: 'Growth stage investments in software and digital platforms',
+      totalCapital: 100000000,
+      vintage: 2024,
+    },
+    {
+      id: '3',
+      name: 'Healthcare Innovation Fund',
+      description: 'Specialized fund focusing on digital health and biotech',
+      totalCapital: 75000000,
+      vintage: 2024,
+    },
+  ];
 
   async findAll(): Promise<Fund[]> {
     return this.funds;
