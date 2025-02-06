@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { Fund } from '@verp/shared';
-import { FundsService } from './funds.service';
+import { FundsService } from './funds.service.js';
 
 @ApiTags('funds')
 @Controller('funds')

@@ -1,5 +1,4 @@
 import { Box, Paper, Typography } from '@mui/material';
-import { Portfolio as PortfolioType } from '@verp/shared';
 
 // Placeholder component until we implement the full portfolio management features
 export default function Portfolio() {
