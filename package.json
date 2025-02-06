@@ -1,0 +1,20 @@
+{
+  "name": "verp",
+  "version": "0.1.0",
+  "description": "Venture Capital Fund ERP System",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "erp",
+    "venture-capital",
+    "fund-management",
+    "portfolio-management"
+  ],
+  "author": "",
+  "license": "MIT"
+}
