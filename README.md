@@ -64,4 +64,4 @@ TBD - Scripts will be added as development progresses.
 
 ## License
 
-MIT
+Apache License 2.0. See [LICENSE](LICENSE) for more information.
